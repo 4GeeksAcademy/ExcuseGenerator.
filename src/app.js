@@ -7,34 +7,29 @@ import "./assets/img/4geeks.ico";
 
 //write your code here
 
-window.onload = () => {
+window.onload = () =>
   document.getElementById("btn").addEventListener("click", () => {
     document.getElementById("excuse").innerHTML = excuseGenerator();
   });
 
-  const randomNumber = () => {
-    const random = Math.floor(Math.random() * 4);
-    return random;
-  };
+let who = ["Pikachu", "Batman", "Doraemon", "Mi ex"];
+let action = ["se golpeò", "rompiò", "ensuciò", "se comio"];
+let what = ["los dioses", "mi loro", "las estrellas"];
+let when = [
+  "mientras estaba con Leo Messi",
+  "mientras estaba en Gran Hermano",
+  "cuando quedé con el Papa",
+  "antes de clase",
+  "mientras rezaba"
+];
 
-  const excuseGenerator = () => {
-    const who = ["My ex", "Batman", "Pikachu", "Doraemon"];
-    const action = ["orinó", "aplastó", "discutió", "golpeó"];
-    const what = [
-      "mi corazon",
-      "mi Ferrari",
-      "mi camiseta favorita",
-      "las estrellas"
-    ];
-    const when = [
-      "mientras estaba en la ducha",
-      "durante la hora de la siesta",
-      "mientras estaba en Gran Hermano",
-      "cuando me visitó Leo Messi"
-    ];
+function excuseGenerator() {
+  let randomWho = who[Math.floor(Math.random() * who.length)];
+  let randomAction = action[Math.floor(Math.random() * action.length)];
+  let randomWhat = what[Math.floor(Math.random() * what.length)];
+  let randomWhen = when[Math.floor(Math.random() * when.length)];
 
-    return `${who[randomNumber()]} ${action[randomNumber()]} ${
-      what[randomNumber()]
-    } ${when[randomNumber()]}`;
-  };
-};
+  return (
+    randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen + "."
+  );
+}
